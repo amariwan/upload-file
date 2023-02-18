@@ -108,7 +108,7 @@ const itemMarkup = (file, url, x, y) =>
     item.setAttribute("id", id);
     if (file.type === "text/csv")
     {
-        url = "csv";
+        url = "csv.png";
     }
   item.innerHTML = `
     <div class="item-img">
