@@ -117,7 +117,7 @@ const itemMarkup = (file, url, x, y) => {
     item.setAttribute("id", id);
     let isFileTypeText = file.type.split("/")[0] === "text";
     console.log(isFileTypeText)
-  if (file.type == "text/*") {
+  if (isFileTypeText) {
     url = "paper.png";
   }
   item.innerHTML = `
