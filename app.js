@@ -218,7 +218,13 @@ const itemMarkup = (file, url, x, y) =>
 const deleteItem = (e) =>
 {
     const parent = e.target.parentNode;
-    console.log(e.target.parentNode.id)
+    filesAr.forEach((e) =>
+    {
+        if (e.id === e.target.parentNode.id)
+        {
+            filesAr.splice(filesAr.indexOf(e), 1);
+        }
+    })
   const children = parent.querySelectorAll(":scope > *");
 
   const deletetl = gsap.timeline({
