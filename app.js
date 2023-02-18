@@ -100,7 +100,7 @@ const itemMarkup = (file, url, x, y) =>
         console.log("File already exists")
         return;
     }
-    console.log(filesAr, isFileInArIncludes);
+    console.log(filesAr, isFileInArAlready);
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
