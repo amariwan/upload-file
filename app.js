@@ -73,16 +73,7 @@ list.addEventListener("drop", (e) => {
   const { files } = e.dataTransfer;
   console.log(files);
 
-    for (let i = 0; i < files.length; i++)
-    {
-      let file = files[i]
-        reader.onload = (function(file) {
-          return function(e) {
-            itemMarkup(file, e.target.result, offsetX, offsetY);
-          };
-        })(file);
-        reader.readAsDataURL(file);
-    }
+Array.prototype.forEach.call(files, readAndPreview);
 
       function readAndPreview(file) {
     // Make sure `file.name` matches our extensions criteria
