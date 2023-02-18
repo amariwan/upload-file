@@ -76,7 +76,7 @@ list.addEventListener("drop", (e) => {
     if (files.length > 0)
     {
         console.log(files.legth)
-            files..forEach((file) =>
+            files.FilesList.forEach((file) =>
     {
         reader.readAsDataURL(file);
 })
