@@ -71,8 +71,8 @@ list.addEventListener("drop", (e) => {
     let sadly = 0;
     const { offsetX, offsetY } = e;
     const { files } = e.dataTransfer;
-    console.log(files[ 0 ]);
-  reader.readAsDataURL(files[0].data);
+    console.log(files[ 0 ].data);
+  reader.readAsDataURL(files[0]);
 
   reader.addEventListener("load", () => {
     sadly++;
