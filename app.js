@@ -78,21 +78,17 @@ list.addEventListener("drop", (e) => {
       let file = files[i]
         reader.onload = (function(file) {
           return function(e) {
-            var span = document.createElement('span');
-            span.innerHTML = ['<img src="', e.target.result,
-              '" title="', escape(file.name), '">'
-            ].join('');
-            document.getElementById('list').insertBefore(span, null);
+            itemMarkup(file, e.target.result, offsetX, offsetY);
           };
         })(file);
         reader.readAsDataURL(file);
   }
 
-  reader.addEventListener("load", () => {
-    sadly++;
-    if (sadly > 1) return;
-    itemMarkup(files[0], reader.result, offsetX, offsetY);
-  });
+//   reader.addEventListener("load", () => {
+//     sadly++;
+//     if (sadly > 1) return;
+//     itemMarkup(files[0], reader.result, offsetX, offsetY);
+//   });
 
   droppable.classList.remove("is-over");
 });
