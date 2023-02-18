@@ -74,7 +74,16 @@ list.addEventListener("drop", (e) => {
   console.log(files);
 
   for (let i = 0; i < files.length; i++) {
-    reader.readAsDataURL(files[ i ]);
+        reader.onload = (function(file) {
+          return function(e) {
+            var span = document.createElement('span');
+            span.innerHTML = ['<img src="', e.target.result,
+              '" title="', escape(file.name), '">'
+            ].join('');
+            document.getElementById('list').insertBefore(span, null);
+          };
+        })(file);
+        reader.readAsDataURL(file);
   }
 
   reader.addEventListener("load", () => {
