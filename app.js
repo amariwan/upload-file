@@ -193,8 +193,10 @@ const itemMarkup = (file, url, x, y) =>
     .set(droppable, { pointerEvents: "all" });
 };
 
-const deleteItem = (e) => {
-  const parent = e.target.parentNode;
+const deleteItem = (e) =>
+{
+    const parent = e.target.parentNode;
+    log(parent);
   const children = parent.querySelectorAll(":scope > *");
 
   const deletetl = gsap.timeline({
