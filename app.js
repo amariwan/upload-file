@@ -90,7 +90,7 @@ const itemMarkup = (file, url, x, y) =>
     el.size = formatBytes(file.size);
     el.type = file.type;
     el.data = url;
-    const isFileInArIncludes = filesAr.map(e => e.data === url);
+    const isFileInArIncludes = filesAr.some(e => e.data === url);
 
     if (!isFileInArIncludes)
     {
