@@ -218,7 +218,7 @@ const itemMarkup = (file, url, x, y) =>
 const deleteItem = (e) =>
 {
     const parent = e.target.parentNode;
-    console.log(e)
+    console.log(e.target.id)
   const children = parent.querySelectorAll(":scope > *");
 
   const deletetl = gsap.timeline({
