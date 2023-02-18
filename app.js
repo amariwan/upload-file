@@ -49,7 +49,7 @@ dragtl
       transformOrigin: "right",
       rotate: "66deg",
       translateY: "70px",
-      translateX: "-20px"
+      translateX: "-20px",
     },
     "drag"
   );
@@ -66,59 +66,51 @@ list.addEventListener("dragleave", (e) => {
   dragtl.reverse();
 });
 
-
 list.addEventListener("drop", (e) => {
-    e.preventDefault();
-    let sadly = 0;
-    const { offsetX, offsetY } = e;
-    const { files } = e.dataTransfer;
-    console.log(files)
+  e.preventDefault();
+  let sadly = 0;
+  const { offsetX, offsetY } = e;
+  const { files } = e.dataTransfer;
+  console.log(files);
 
-        for (let i = 0; i < files.length; i++)
-        {
-            const file = files[ i ]
-            reader.readAsDataURL(file);
-        }
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    reader.readAsDataURL(file);
+  }
 
+  reader.addEventListener("load", () => {
+    sadly++;
+    if (sadly > 1) return;
+    itemMarkup(files[0], reader.result, offsetX, offsetY);
+  });
 
-
-    reader.addEventListener("load", () => {
-        sadly++;
-        if (sadly > 1) return;
-        itemMarkup(files[0], reader.result, offsetX, offsetY);
-    });
-
-    droppable.classList.remove("is-over");
+  droppable.classList.remove("is-over");
 });
 
-const itemMarkup = (file, url, x, y) =>
-{
-    const id = Math.random().toString(36).substr(2, 9);
-    var el = {};
-    el.name = file.name;
-    el.size = formatBytes(file.size);
-    el.type = file.type;
-    el.data = url;
-    el.id = id;
-    const isFileInArAlready = filesAr.some((e) => e.data === url);
+const itemMarkup = (file, url, x, y) => {
+  const id = Math.random().toString(36).substr(2, 9);
+  var el = {};
+  el.name = file.name;
+  el.size = formatBytes(file.size);
+  el.type = file.type;
+  el.data = url;
+  el.id = id;
+  const isFileInArAlready = filesAr.some((e) => e.data === url);
 
-    if (!isFileInArAlready)
-    {
-        filesAr.push(el);
-    } else
-    {
-        console.log("File already exists")
-        return;
-    }
-    console.log(filesAr, isFileInArAlready);
+  if (!isFileInArAlready) {
+    filesAr.push(el);
+  } else {
+    console.log("File already exists");
+    return;
+  }
+  console.log(filesAr, isFileInArAlready);
   const item = document.createElement("div");
 
   item.classList.add("item");
-    item.setAttribute("id", id);
-    if (file.type === "text/csv")
-    {
-        url = "csv.png";
-    }
+  item.setAttribute("id", id);
+  if (file.type === "text/csv") {
+    url = "csv.png";
+  }
   item.innerHTML = `
     <div class="item-img">
       <img src="${url}" />
@@ -158,14 +150,14 @@ const itemMarkup = (file, url, x, y) =>
     </span>
   `;
 
-    list.append(image);
+  list.append(image);
   let progress = 0;
   const tl = gsap.timeline({
     onComplete: () => {
       image.remove();
       itemImage.style.opacity = 1;
       list.scrollTo(0, list.scrollHeight);
-    }
+    },
   });
 
   const itemChildren = item.querySelectorAll("*:not(.item-img)");
@@ -183,7 +175,7 @@ const itemMarkup = (file, url, x, y) =>
         height: 20,
         x: x - 10,
         y: y - 10,
-        borderRadius: "50%"
+        borderRadius: "50%",
       },
       { duration: 0.3, width: 70, height: 70, x: x - 30, y: y - 30 }
     )
@@ -192,7 +184,7 @@ const itemMarkup = (file, url, x, y) =>
       image,
       {
         rotation: 720,
-        duration: 1.2
+        duration: 1.2,
       },
       "loading"
     )
@@ -207,7 +199,7 @@ const itemMarkup = (file, url, x, y) =>
         autoAlpha: 1,
         width: 60,
         height: 48,
-        borderRadius: 4
+        borderRadius: 4,
       },
       "-=.5"
     )
@@ -223,16 +215,13 @@ const itemMarkup = (file, url, x, y) =>
     .set(droppable, { pointerEvents: "all" });
 };
 
-const deleteItem = (e) =>
-{
-    const parent = e.target.parentNode;
-    filesAr.forEach((el) =>
-    {
-        if (el.id === e.target.parentNode.id)
-        {
-            filesAr.splice(filesAr.indexOf(el), 1);
-        }
-    })
+const deleteItem = (e) => {
+  const parent = e.target.parentNode;
+  filesAr.forEach((el) => {
+    if (el.id === e.target.parentNode.id) {
+      filesAr.splice(filesAr.indexOf(el), 1);
+    }
+  });
   const children = parent.querySelectorAll(":scope > *");
 
   const deletetl = gsap.timeline({
@@ -240,7 +229,7 @@ const deleteItem = (e) =>
       parent.remove();
       const item = document.querySelector(".item");
       if (!item) dragtl.reverse();
-    }
+    },
   });
 
   deletetl
