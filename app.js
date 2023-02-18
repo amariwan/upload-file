@@ -73,7 +73,7 @@ list.addEventListener("drop", (e) => {
     const { files } = e.dataTransfer;
     let array = [];
     console.log(files);
-        array.from(files).forEach(function(file) {
+      files.forEach(function(file) {
               reader.readAsDataURL(file);
 
     })
