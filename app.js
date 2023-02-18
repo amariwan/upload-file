@@ -218,9 +218,9 @@ const itemMarkup = (file, url, x, y) =>
 const deleteItem = (e) =>
 {
     const parent = e.target.parentNode;
-    filesAr.forEach((e) =>
+    filesAr.forEach((el) =>
     {
-        if (e.id === e.target.parentNode.id)
+        if (el.id === e.target.parentNode.id)
         {
             filesAr.splice(filesAr.indexOf(e), 1);
         }
