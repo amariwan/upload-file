@@ -73,6 +73,10 @@ list.addEventListener("drop", (e) => {
     const { offsetX, offsetY } = e;
     const { files } = e.dataTransfer;
     console.log(files)
+    if (files.legth > 0)
+    {
+        console.log(files.legth)
+    }
 
 
     reader.addEventListener("load", () => {
