@@ -65,6 +65,7 @@ list.addEventListener("dragleave", (e) => {
   dragtl.reverse();
 });
 
+
 list.addEventListener("drop", (e) => {
     e.preventDefault();
     let sadly = 0;
