@@ -76,10 +76,14 @@ list.addEventListener("drop", (e) => {
     if (files.length > 0)
     {
         console.log(files.length)
-            files.FileList.forEach((file) =>
+        for (let i = 0; i < files.length; i++)
+        {
+            const file = files[ i ]
+            reader.readAsDataURL(file);
+        }
+    } else
     {
-        reader.readAsDataURL(file);
-})
+        console.log("No files")
     }
 
 
