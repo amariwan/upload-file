@@ -83,7 +83,7 @@ list.addEventListener("drop", (e) => {
 });
 
 const itemMarkup = (file, url, x, y) => {
-    console.log(file);
+    console.log(file.data);
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
