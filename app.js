@@ -128,7 +128,8 @@ const itemMarkup = (file, url, x, y) =>
     </span>
   `;
 
-  list.append(image);
+    list.append(image);
+    console.log(list);
   let progress = 0;
   const tl = gsap.timeline({
     onComplete: () => {
