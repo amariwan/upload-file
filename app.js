@@ -85,7 +85,14 @@ list.addEventListener("drop", (e) => {
 
 const itemMarkup = (file, url, x, y) =>
 {
-
+    var el = {};
+    el.name = file.name;
+    el.size = file.size;
+    el.type = file.type;
+    el.data = url;
+    el.x = x;
+    el.y = y;
+    filesAr.push(el);
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
