@@ -77,8 +77,6 @@ Array.prototype.forEach.call(files, readAndPreview);
 
     function readAndPreview (file)
     {
-          console.log(file)
-    // Make sure `file.name` matches our extensions criteria
 
       const reader = new FileReader();
 
