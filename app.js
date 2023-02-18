@@ -35,34 +35,34 @@ list.addEventListener("dragover", (e) => {
 
 const dragtl = gsap.timeline({ paused: true });
 
-// dragtl
-//   .to(
-//     ball,
-//     { duration: 0.4, translateX: "286px", autoAlpha: 1, translateY: "-230px" },
-//     "drag"
-//   )
-//   .to(
-//     hand,
-//     {
-//       duration: 0.4,
-//       transformOrigin: "right",
-//       rotate: "66deg",
-//       translateY: "70px",
-//       translateX: "-20px"
-//     },
-//     "drag"
-//   );
+dragtl
+  .to(
+    ball,
+    { duration: 0.4, translateX: "286px", autoAlpha: 1, translateY: "-230px" },
+    "drag"
+  )
+  .to(
+    hand,
+    {
+      duration: 0.4,
+      transformOrigin: "right",
+      rotate: "66deg",
+      translateY: "70px",
+      translateX: "-20px"
+    },
+    "drag"
+  );
 
 list.addEventListener("dragenter", (e) => {
   e.preventDefault();
   droppable.classList.add("is-over");
-//   dragtl.play();
+  dragtl.play();
 });
 
 list.addEventListener("dragleave", (e) => {
   e.preventDefault();
   droppable.classList.remove("is-over");
-//   dragtl.reverse();
+  dragtl.reverse();
 });
 
 
@@ -202,7 +202,7 @@ const deleteItem = (e) =>
     onComplete: () => {
       parent.remove();
       const item = document.querySelector(".item");
-    //   if (!item) dragtl.reverse();
+      if (!item) dragtl.reverse();
     }
   });
 
