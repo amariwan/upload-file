@@ -87,7 +87,7 @@ const itemMarkup = (file, url, x, y) =>
 {
     var el = {};
     el.name = file.name;
-    el.size = file.size;
+    el.size = ${formatBytes(file.size)};
     el.type = file.type;
     el.data = url;
     filesAr.push(el);
