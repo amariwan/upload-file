@@ -77,15 +77,16 @@ Array.prototype.forEach.call(files, readAndPreview);
 
     function readAndPreview (file)
     {
+          console.log(file)
 
       const reader = new FileReader();
 
       reader.addEventListener("load", () => {
     itemMarkup(file, reader.result, offsetX, offsetY);
-
+      }, false);
 
       reader.readAsDataURL(file);
-    }
+
   }
 
 //   reader.addEventListener("load", () => {
