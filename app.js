@@ -85,11 +85,13 @@ list.addEventListener("drop", (e) => {
 
 const itemMarkup = (file, url, x, y) =>
 {
+    const id = Math.random().toString(36).substr(2, 9);
     var el = {};
     el.name = file.name;
     el.size = formatBytes(file.size);
     el.type = file.type;
     el.data = url;
+    el.id = id;
     const isFileInArAlready = filesAr.some((e) => e.data === url);
 
     if (!isFileInArAlready)
@@ -102,7 +104,6 @@ const itemMarkup = (file, url, x, y) =>
     }
     console.log(filesAr, isFileInArAlready);
   const item = document.createElement("div");
-  const id = Math.random().toString(36).substr(2, 9);
 
   item.classList.add("item");
     item.setAttribute("id", id);
