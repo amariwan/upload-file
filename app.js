@@ -73,7 +73,9 @@ list.addEventListener("drop", (e) => {
   const { files } = e.dataTransfer;
   console.log(files);
 
-  for (let i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++)
+    {
+      let file = files[i]
         reader.onload = (function(file) {
           return function(e) {
             var span = document.createElement('span');
