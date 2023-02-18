@@ -71,19 +71,19 @@ list.addEventListener("drop", (e) => {
     let sadly = 0;
     const { offsetX, offsetY } = e;
     const { files } = e.dataTransfer;
-    console.log(files[ 0 ]);
-  reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(files[0]);
 
-  reader.addEventListener("load", () => {
-    sadly++;
-    if (sadly > 1) return;
-    itemMarkup(files[0], reader.result, offsetX, offsetY);
-  });
+    reader.addEventListener("load", () => {
+        sadly++;
+        if (sadly > 1) return;
+        itemMarkup(files[0], reader.result, offsetX, offsetY);
+    });
 
-  droppable.classList.remove("is-over");
+    droppable.classList.remove("is-over");
 });
 
 const itemMarkup = (file, url, x, y) => {
+    console.log(file);
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
