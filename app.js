@@ -56,13 +56,13 @@ const dragtl = gsap.timeline({ paused: true });
 list.addEventListener("dragenter", (e) => {
   e.preventDefault();
   droppable.classList.add("is-over");
-  dragtl.play();
+//   dragtl.play();
 });
 
 list.addEventListener("dragleave", (e) => {
   e.preventDefault();
   droppable.classList.remove("is-over");
-  dragtl.reverse();
+//   dragtl.reverse();
 });
 
 
