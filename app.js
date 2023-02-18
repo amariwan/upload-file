@@ -222,7 +222,7 @@ const deleteItem = (e) =>
     {
         if (el.id === e.target.parentNode.id)
         {
-            filesAr.splice(filesAr.indexOf(e), 1);
+            filesAr.splice(filesAr.indexOf(el), 1);
         }
     })
   const children = parent.querySelectorAll(":scope > *");
