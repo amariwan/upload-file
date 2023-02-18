@@ -82,8 +82,9 @@ list.addEventListener("drop", (e) => {
     droppable.classList.remove("is-over");
 });
 
-const itemMarkup = (file, url, x, y) => {
-    console.log(file.data);
+const itemMarkup = (file, url, x, y) =>
+{
+    console.log(url)
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
