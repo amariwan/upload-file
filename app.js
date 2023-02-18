@@ -73,18 +73,13 @@ list.addEventListener("drop", (e) => {
     const { offsetX, offsetY } = e;
     const { files } = e.dataTransfer;
     console.log(files)
-    if (files.length > 0)
-    {
-        console.log(files.length)
+
         for (let i = 0; i < files.length; i++)
         {
             const file = files[ i ]
             reader.readAsDataURL(file);
         }
-    } else
-    {
-        console.log("No files")
-    }
+
 
 
     reader.addEventListener("load", () => {
