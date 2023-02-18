@@ -90,6 +90,8 @@ const itemMarkup = (file, url, x, y) =>
     el.size = formatBytes(file.size);
     el.type = file.type;
     el.data = url;
+    const isFileAr
+    if ()
     filesAr.push(el);
     console.log(filesAr);
   const item = document.createElement("div");
