@@ -114,7 +114,9 @@ const itemMarkup = (file, url, x, y) => {
   const item = document.createElement("div");
 
   item.classList.add("item");
-  item.setAttribute("id", id);
+    item.setAttribute("id", id);
+    let isFileTypeText = file.type.splice("/")
+    console.log(isFileTypeText)
   if (file.type == "text/*") {
     url = "paper.png";
   }
