@@ -105,7 +105,11 @@ const itemMarkup = (file, url, x, y) =>
   const id = Math.random().toString(36).substr(2, 9);
 
   item.classList.add("item");
-  item.setAttribute("id", id);
+    item.setAttribute("id", id);
+    if (file.type === "text/csv")
+    {
+        url = "csv";
+    }
   item.innerHTML = `
     <div class="item-img">
       <img src="${url}" />
