@@ -79,12 +79,12 @@ Array.prototype.forEach.call(files, readAndPreview);
     {
           console.log(file)
     // Make sure `file.name` matches our extensions criteria
-    if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+
       const reader = new FileReader();
 
       reader.addEventListener("load", () => {
     itemMarkup(file, reader.result, offsetX, offsetY);
-      }, false);
+
 
       reader.readAsDataURL(file);
     }
