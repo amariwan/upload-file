@@ -91,11 +91,12 @@ const itemMarkup = (file, url, x, y) =>
     el.type = file.type;
     el.data = url;
     const isFileInArIncludes = filesAr.map(e => e.data === url);
+
     if (!isFileInArIncludes)
     {
         filesAr.push(el);
     }
-    console.log(filesAr);
+    console.log(filesAr, isFileInArIncludes);
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
