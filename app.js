@@ -107,7 +107,7 @@ const itemMarkup = (file, url, x, y) => {
   if (!isFileInArAlready) {
     filesAr.push(el);
   } else {
-    console.log("File already exists");
+    console.log("${file.name} already exists");
     return;
   }
   console.log(filesAr, isFileInArAlready);
@@ -116,7 +116,6 @@ const itemMarkup = (file, url, x, y) => {
   item.classList.add("item");
     item.setAttribute("id", id);
     let isFileTypeText = file.type.split("/")[0] === "text";
-    console.log(isFileTypeText)
   if (isFileTypeText) {
     url = "paper.png";
   }
