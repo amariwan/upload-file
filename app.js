@@ -95,6 +95,9 @@ const itemMarkup = (file, url, x, y) =>
     if (!isFileInArIncludes)
     {
         filesAr.push(el);
+    } else
+    {
+        return;
     }
     console.log(filesAr, isFileInArIncludes);
   const item = document.createElement("div");
