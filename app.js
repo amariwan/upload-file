@@ -73,27 +73,23 @@ list.addEventListener("drop", (e) => {
   const { files } = e.dataTransfer;
   console.log(files);
 
-Array.prototype.forEach.call(files, readAndPreview);
+  Array.prototype.forEach.call(files, readAndPreview);
 
-    function readAndPreview (file)
-    {
-          console.log(file)
+  function readAndPreview(file) {
+    console.log(file);
 
-      const reader = new FileReader();
+    const reader = new FileReader();
 
-      reader.addEventListener("load", () => {
-    itemMarkup(file, reader.result, offsetX, offsetY);
-      }, false);
+    reader.addEventListener(
+      "load",
+      () => {
+        itemMarkup(file, reader.result, offsetX, offsetY);
+      },
+      false
+    );
 
-      reader.readAsDataURL(file);
-
+    reader.readAsDataURL(file);
   }
-
-//   reader.addEventListener("load", () => {
-//     sadly++;
-//     if (sadly > 1) return;
-//     itemMarkup(files[0], reader.result, offsetX, offsetY);
-//   });
 
   droppable.classList.remove("is-over");
 });
