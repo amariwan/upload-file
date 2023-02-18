@@ -70,29 +70,25 @@ list.addEventListener("drop", (e) => {
   e.preventDefault();
   let sadly = 0;
   const { offsetX, offsetY } = e;
-    const { files } = e.dataTransfer;
-    let array = [];
-    console.log(files);
-      files.forEach(function(file) {
-              reader.readAsDataURL(file);
+  const { files } = e.dataTransfer;
+  console.log(files);
 
-    })
+    for (let i = 0; i < files.length; i++)
+    {
+      let file = files[i]
+        reader.onload = (function(file) {
+          return function(e) {
+            itemMarkup(file, e.target.result, offsetX, offsetY);
+          };
+        })(file);
+        reader.readAsDataURL(file);
+  }
 
-//     for (let i = 0; i < files.length; i++)
-//     {
-//       let file = files[i]
-//         reader.onload = (function(file) {
-//           return function(e) {
-//             itemMarkup(file, e.target.result, offsetX, offsetY);
-//           };
-//         })(file);
-//   }
-
-  reader.addEventListener("load", () => {
-    sadly++;
-    if (sadly > 1) return;
-    itemMarkup(files[0], reader.result, offsetX, offsetY);
-  });
+//   reader.addEventListener("load", () => {
+//     sadly++;
+//     if (sadly > 1) return;
+//     itemMarkup(files[0], reader.result, offsetX, offsetY);
+//   });
 
   droppable.classList.remove("is-over");
 });
