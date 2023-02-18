@@ -75,7 +75,9 @@ list.addEventListener("drop", (e) => {
 
 Array.prototype.forEach.call(files, readAndPreview);
 
-      function readAndPreview(file) {
+    function readAndPreview (file)
+    {
+          console.log(file)
     // Make sure `file.name` matches our extensions criteria
     if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
       const reader = new FileReader();
