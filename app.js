@@ -97,6 +97,7 @@ const itemMarkup = (file, url, x, y) =>
         filesAr.push(el);
     } else
     {
+        console.log("File already exists")
         return;
     }
     console.log(filesAr, isFileInArIncludes);
