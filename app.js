@@ -107,10 +107,9 @@ const itemMarkup = (file, url, x, y) => {
   if (!isFileInArAlready) {
     filesAr.push(el);
   } else {
-    console.log("${file.name} already exists");
+    console.log(`${file.name} already exists`);
     return;
   }
-  console.log(filesAr, isFileInArAlready);
   const item = document.createElement("div");
 
   item.classList.add("item");
