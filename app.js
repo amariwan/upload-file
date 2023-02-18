@@ -66,7 +66,7 @@ list.addEventListener("dragleave", (e) => {
 });
 
 list.addEventListener("drop", (e) => {
-    console.log(e)
+    console.log(e.dataTransfer)
   e.preventDefault();
   let sadly = 0;
   const { offsetX, offsetY } = e;
