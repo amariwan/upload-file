@@ -82,6 +82,23 @@ list.addEventListener("drop", (e) => {
           };
         })(file);
         reader.readAsDataURL(file);
+    }
+
+      function readAndPreview(file) {
+    // Make sure `file.name` matches our extensions criteria
+    if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+      const reader = new FileReader();
+
+      reader.addEventListener("load", () => {
+        const image = new Image();
+        image.height = 100;
+        image.title = file.name;
+        image.src = this.result;
+        preview.appendChild(image);
+      }, false);
+
+      reader.readAsDataURL(file);
+    }
   }
 
 //   reader.addEventListener("load", () => {
