@@ -35,23 +35,23 @@ list.addEventListener("dragover", (e) => {
 
 const dragtl = gsap.timeline({ paused: true });
 
-dragtl
-  .to(
-    ball,
-    { duration: 0.4, translateX: "286px", autoAlpha: 1, translateY: "-230px" },
-    "drag"
-  )
-  .to(
-    hand,
-    {
-      duration: 0.4,
-      transformOrigin: "right",
-      rotate: "66deg",
-      translateY: "70px",
-      translateX: "-20px"
-    },
-    "drag"
-  );
+// dragtl
+//   .to(
+//     ball,
+//     { duration: 0.4, translateX: "286px", autoAlpha: 1, translateY: "-230px" },
+//     "drag"
+//   )
+//   .to(
+//     hand,
+//     {
+//       duration: 0.4,
+//       transformOrigin: "right",
+//       rotate: "66deg",
+//       translateY: "70px",
+//       translateX: "-20px"
+//     },
+//     "drag"
+//   );
 
 list.addEventListener("dragenter", (e) => {
   e.preventDefault();
@@ -129,7 +129,6 @@ const itemMarkup = (file, url, x, y) =>
   `;
 
     list.append(image);
-    console.log(list);
   let progress = 0;
   const tl = gsap.timeline({
     onComplete: () => {
