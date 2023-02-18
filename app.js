@@ -202,7 +202,7 @@ const deleteItem = (e) =>
     onComplete: () => {
       parent.remove();
       const item = document.querySelector(".item");
-      if (!item) dragtl.reverse();
+    //   if (!item) dragtl.reverse();
     }
   });
 
