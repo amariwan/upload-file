@@ -3,6 +3,7 @@ const list = document.querySelector(".list");
 const ball = document.querySelector(".ball");
 const filledBall = document.querySelector(".filled-ball");
 const hand = document.querySelector(".hand");
+const filesAr = [];
 
 const reader = new FileReader();
 
@@ -84,6 +85,7 @@ list.addEventListener("drop", (e) => {
 
 const itemMarkup = (file, url, x, y) =>
 {
+
   const item = document.createElement("div");
   const id = Math.random().toString(36).substr(2, 9);
 
