@@ -74,8 +74,9 @@ list.addEventListener("drop", (e) => {
   console.log(files);
 
   for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    reader.readAsDataURL(file);
+      const file = files[ i ];
+      console.log(file);
+    // reader.readAsDataURL(file);
   }
 
   reader.addEventListener("load", () => {
