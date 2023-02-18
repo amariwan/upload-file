@@ -66,11 +66,11 @@ list.addEventListener("dragleave", (e) => {
 });
 
 list.addEventListener("drop", (e) => {
-    console.log(e.dataTransfer)
-  e.preventDefault();
-  let sadly = 0;
-  const { offsetX, offsetY } = e;
+    e.preventDefault();
+    let sadly = 0;
+    const { offsetX, offsetY } = e;
     const { files } = e.dataTransfer;
+    console.log(files)
   reader.readAsDataURL(files[0]);
 
   reader.addEventListener("load", () => {
